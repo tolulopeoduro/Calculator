@@ -1,14 +1,4 @@
-let plus=(str)=>{
-    let a = str.split("");
-    b = parseInt(a[0])
-    d = parseInt(a[1])
-    if (a[2] = " + ") {
-      a = b + d;
-      return a;
-    }
-    return a;
-  }
-  
+
   const input = document.getElementById("screen")
   const numbers = document.getElementsByClassName("num-btn");
 
@@ -30,66 +20,89 @@ let plus=(str)=>{
   const divideBtn= document.getElementById("division-button");
   const solveBtn = document.getElementById("solve-button")
 
+  let solve=()=>{
+    let result = "";
+    let nums = input.textContent.split(" ");
+    nums[0] = parseFloat(nums[0]);
+    result = nums[0]
+    for (let i = 1; i < nums.length ; i++) {
+        if (typeof parseFloat(nums[i]) == "number" && nums[i-1] === "+") {
+            result += parseFloat(nums[i]);
+        } else if (typeof parseFloat(nums[i]) == "number" && nums[i-1] === "-") {
+            result -= parseFloat(nums[i]);
+        } else if (typeof parseFloat(nums[i]) == "number" && nums[i-1] === "x") {
+            result *= parseFloat(nums[i]);
+        } else if (typeof parseFloat(nums[i]) == "number" && nums[i-1] === "/") {
+            result /= parseFloat(nums[i]);
+        }
+    }
+    input.textContent = result;
+}
+
+
+
     one.onclick = function(){
-      input.value += 1;
+      input.textContent += "1";
     };
 
     two.onclick= function(){
-      input.value += 2;
+      input.textContent += "2";
     };
 
     three.onclick= function(){
-      input.value += 3;
+      input.textContent += "3";
     };
 
     four.onclick= function(){
-      input.value += 4;
+      input.textContent += "4";
     };
 
     five.onclick = function(){
-      input.value += 5;
+      input.textContent += "5";
     };
 
     six.onclick= function(){
-      input.value += 6;
+      input.textContent += "6";
     };
 
     seven.onclick= function(){
-      input.value += 7;
+      input.textContent += "7";
     };
 
     eight.onclick= function(){
-      input.value += 8;
+      input.textContent += "8";
     };
 
     nine.onclick = function(){
-      input.value += 9;
+      input.textContent += "9";
     };
 
     zero.onclick= function(){
-      input.value += 0;
+      input.textContent += "0";
     };
 
     dot.onclick= function(){
-      input.value += .0;
+      input.textContent += ".";
     };
 
     clear.onclick= function(){
-      input.value = "";
+      input.textContent = "";
     };
 
-    five.onclick = function(){
-      input.value += 5;
+    addbtn.onclick = function(){
+      input.textContent += " + ";
     };
 
-    six.onclick= function(){
-      input.value += 6;
+    subtractBtn.onclick= function(){
+      input.textContent += " - ";
     };
 
-    seven.onclick= function(){
-      input.value += 7;
+    multiplyBtn.onclick= function(){
+      input.textContent += " x ";
     };
 
-    eight.onclick= function(){
-      input.value += 8;
+    divideBtn.onclick= function(){
+      input.textContent += " / ";
     };
+
+    solveBtn.onclick= solve;
