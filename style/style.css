@@ -99,7 +99,3 @@ body {
     background-color: moccasin;
 }
 
-#zero {
-    grid-column-start: span 2;
-    width: 105px;
-}

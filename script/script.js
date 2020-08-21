@@ -18,7 +18,18 @@
   const subtractBtn = document.getElementById("subtraction-button")
   const multiplyBtn = document.getElementById("multiplication-button");
   const divideBtn= document.getElementById("division-button");
-  const solveBtn = document.getElementById("solve-button")
+  const solveBtn = document.getElementById("solve-button");
+  const deleteButton = document.getElementById("delete-button");
+
+  let del=()=>{
+    if (input.textContent.slice(-1) == " ") {
+      input.textContent=input.textContent.slice(0,-1);
+      input.textContent=input.textContent.slice(0,-1);
+      input.textContent=input.textContent.slice(0,-1);
+    } else {
+      input.textContent=input.textContent.slice(0,-1);
+    }
+  }
 
   let solve=()=>{
     let result = "";
@@ -38,7 +49,6 @@
     }
     input.textContent = result;
 }
-
 
 
     one.onclick = function(){
@@ -106,3 +116,8 @@
     };
 
     solveBtn.onclick= solve;
+
+    deleteButton.onclick = del;
+    
+    var sttr = "Hello TecAdmin!";
+var newStr = sttr.slice(0, -1);
